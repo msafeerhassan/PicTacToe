@@ -4,8 +4,21 @@ import random
 mainArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 user1wins = 0
 user2wins = 0
-user1Name = str(input("User 1 Name: "))
-user2Name = str(input("User 2 Name: "))
+while True:
+    mode = int(input("""Would you like to play:
+                  1. Human VS Human
+                  2. Human VS Computer? Reply with either 1 or 2: """))
+    if mode != 1 and mode != 2:
+        print("Please either reply with 1 or 2!!")
+        pass
+    else:
+        break
+
+if mode == 1:
+    user1Name = str(input("User 1 Name: "))
+    user2Name = str(input("User 2 Name: "))
+else:
+    user1Name = str(input("Human Player Name: "))
 
 
 def createBoard():
@@ -43,6 +56,7 @@ def computerTurn():
             pass
         else:
             mainArr[arrPosition] = "O"
+            print(f"Computer's Turn (O): {position}")
             break
 
 def checkWin(arr):
@@ -124,57 +138,118 @@ def clearBoard():
     print("Board reset complete!")
 
 createBoard()
-while True:
+def humanVShuman():
+    while True:
 
-    user1Turn()
-    os.system('cls')
-    createBoard()
-    print("\n")
-    if checkWin(mainArr) == True:
-        print(f"{user1Name}'s Wins: {user1wins}")
-        print(f"{user2Name}'s Wins: {user2wins}")
-        if user1wins > user2wins:
-            print(f"{user1Name} is leading!!")
-        elif user2wins > user1wins:
-            print(f"{user2Name} is leading!!")
-        else:
-            print("Waiting for someone to claim lead :(")
-        while True:
-            consent = input("Would you like to play again? (y/n): ")
-            if consent == "Y" or consent == "y":
-                clearBoard()
-                createBoard()
-                break
-            elif consent == "n" or consent == "N":
-                exit()
+        user1Turn()
+        os.system('cls')
+        createBoard()
+        print("\n")
+        if checkWin(mainArr) == True:
+            print(f"{user1Name}'s Wins: {user1wins}")
+            print(f"{user2Name}'s Wins: {user2wins}")
+            if user1wins > user2wins:
+                print(f"{user1Name} is leading!!")
+            elif user2wins > user1wins:
+                print(f"{user2Name} is leading!!")
             else:
-                print("Please either choose Y or N!!")
-                pass
-    else:
-        pass
-    user2Turn()
-    os.system('cls')
-    createBoard()
-    print("\n")
-    if checkWin(mainArr) == True:
-        print(f"User 1 Wins: {user1wins}")
-        print(f"User 2 Wins: {user2wins}")
-        if user1wins > user2wins:
-            print(f"{user1Name} is leading!!")
-        elif user2wins > user1wins:
-            print(f"{user2Name} is leading!!")
+                print("Waiting for someone to claim lead :(")
+            while True:
+                consent = input("Would you like to play again? (y/n): ")
+                if consent == "Y" or consent == "y":
+                    clearBoard()
+                    createBoard()
+                    break
+                elif consent == "n" or consent == "N":
+                    exit()
+                else:
+                    print("Please either choose Y or N!!")
+                    pass
         else:
-            print("Waiting for someone to claim lead :(")
-        while True:
-            consent = input("Would you like to play again? (y/n): ")
-            if consent == "Y" or consent == "y":
-                clearBoard()
-                createBoard()
-                break
-            elif consent == "n" or consent == "N":
-                exit()
+            pass
+        user2Turn()
+        os.system('cls')
+        createBoard()
+        print("\n")
+        if checkWin(mainArr) == True:
+            print(f"User 1 Wins: {user1wins}")
+            print(f"User 2 Wins: {user2wins}")
+            if user1wins > user2wins:
+                print(f"{user1Name} is leading!!")
+            elif user2wins > user1wins:
+                print(f"{user2Name} is leading!!")
             else:
-                print("Please either choose Y or N!!")
-                pass
-    else:
-        pass
+                print("Waiting for someone to claim lead :(")
+            while True:
+                consent = input("Would you like to play again? (y/n): ")
+                if consent == "Y" or consent == "y":
+                    clearBoard()
+                    createBoard()
+                    break
+                elif consent == "n" or consent == "N":
+                    exit()
+                else:
+                    print("Please either choose Y or N!!")
+                    pass
+        else:
+            pass
+
+def computerVShuman():
+    while True:
+
+        user1Turn()
+        os.system('cls')
+        createBoard()
+        print("\n")
+        if checkWin(mainArr) == True:
+            print(f"{user1Name}'s Wins: {user1wins}")
+            print(f"Computer's Wins: {user2wins}")
+            if user1wins > user2wins:
+                print(f"{user1Name} is leading!!")
+            elif user2wins > user1wins:
+                print(f"Computer is leading!!")
+            else:
+                print("Waiting for someone to claim lead :(")
+            while True:
+                consent = input("Would you like to play again? (y/n): ")
+                if consent == "Y" or consent == "y":
+                    clearBoard()
+                    createBoard()
+                    break
+                elif consent == "n" or consent == "N":
+                    exit()
+                else:
+                    print("Please either choose Y or N!!")
+                    pass
+        else:
+            pass
+        computerTurn()
+        createBoard()
+        print("\n")
+        if checkWin(mainArr) == True:
+            print(f"{user1Name} Wins: {user1wins}")
+            print(f"Computer's Wins: {user2wins}")
+            if user1wins > user2wins:
+                print(f"{user1Name} is leading!!")
+            elif user2wins > user1wins:
+                print(f"Computer is leading!!")
+            else:
+                print("Waiting for someone to claim lead :(")
+            while True:
+                consent = input("Would you like to play again? (y/n): ")
+                if consent == "Y" or consent == "y":
+                    clearBoard()
+                    createBoard()
+                    break
+                elif consent == "n" or consent == "N":
+                    exit()
+                else:
+                    print("Please either choose Y or N!!")
+                    pass
+        else:
+            pass
+
+if mode == 1:
+    humanVShuman()
+else:
+    computerVShuman()
