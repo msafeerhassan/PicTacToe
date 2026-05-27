@@ -1,6 +1,8 @@
 import os
 
 mainArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+user1wins = 0
+user2wins = 0
 
 def createBoard():
     for i in range(9):
@@ -30,54 +32,70 @@ def user2Turn():
             break
 
 def checkWin(arr):
+    global user1wins, user2wins
     if arr[0] == arr[1] and arr[1] == arr[2]:
         if arr[0] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[3] == arr[4] and arr[4] == arr[5]:
         if arr[3] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[6] == arr[7] and arr[7] == arr[8]:
         if arr[6] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[0] == arr[3] and arr[3] == arr[6]:
         if arr[0] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[1] == arr[4] and arr[4] == arr[7]:
         if arr[1] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[2] == arr[5] and arr[5] == arr[8]:
         if arr[2] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[0] == arr[4] and arr[4] == arr[8]:
         if arr[0] == "X":
             print("User 1 won!")
-            print("ustad g idhr error hai")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[2] == arr[4] and arr[4] == arr[6]:
         if arr[2] == "X":
             print("User 1 won!")
+            user1wins += 1
         else:
             print("User 2 won!")
+            user2wins += 1
         return True
     elif arr[0] != '1' and arr[1] != '2' and arr[2] != '3' and arr[3] != '4' and arr[4] != '5' and arr[5] != '6' and arr[6] != '7' and arr[7] != '8' and arr[8] != '9':
         print("It's a draw :)")
@@ -98,6 +116,14 @@ while True:
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
+        print(f"User 1 Wins: {user1wins}")
+        print(f"User 2 Wins: {user2wins}")
+        if user1wins > user2wins:
+            print("User 1 is leading!!")
+        elif user2wins > user1wins:
+            print("User 2 is leading!!")
+        else:
+            print("Waiting for someone to claim lead :(")
         while True:
             consent = input("Would you like to play again? (y/n): ")
             if consent == "Y" or consent == "y":
@@ -116,6 +142,14 @@ while True:
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
+        print(f"User 1 Wins: {user1wins}")
+        print(f"User 2 Wins: {user2wins}")
+        if user1wins > user2wins:
+            print("User 1 is leading!!")
+        elif user2wins > user1wins:
+            print("User 2 is leading!!")
+        else:
+            print("Waiting for someone to claim lead :(")
         while True:
             consent = input("Would you like to play again? (y/n): ")
             if consent == "Y" or consent == "y":
