@@ -1,4 +1,4 @@
-# create basic board
+import os
 
 mainArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -89,6 +89,7 @@ def checkWin(arr):
 createBoard()
 while True:
     user1Turn()
+    os.system('cls')
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
@@ -96,6 +97,7 @@ while True:
     else:
         pass
     user2Turn()
+    os.system('cls')
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
