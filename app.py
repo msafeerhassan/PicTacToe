@@ -84,7 +84,12 @@ def checkWin(arr):
         return True
     else:
         return False
-
+    
+def clearBoard():
+    for i in range(9):
+        value = i + 1
+        mainArr[i] = str(value)
+    print("Board reset complete!")
 
 createBoard()
 while True:
@@ -93,7 +98,17 @@ while True:
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
-        break
+        while True:
+            consent = input("Would you like to play again? (y/n): ")
+            if consent == "Y" or consent == "y":
+                clearBoard()
+                createBoard()
+                break
+            elif consent == "n" or consent == "N":
+                exit()
+            else:
+                print("Please either choose Y or N!!")
+                pass
     else:
         pass
     user2Turn()
@@ -101,6 +116,16 @@ while True:
     createBoard()
     print("\n")
     if checkWin(mainArr) == True:
-        break
+        while True:
+            consent = input("Would you like to play again? (y/n): ")
+            if consent == "Y" or consent == "y":
+                clearBoard()
+                createBoard()
+                break
+            elif consent == "n" or consent == "N":
+                exit()
+            else:
+                print("Please either choose Y or N!!")
+                pass
     else:
         pass
