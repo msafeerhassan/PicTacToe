@@ -2,7 +2,7 @@
 
 ## Coded in Python
 
-### Console-based Tic-Tac-Toe Game
+#### Console-based Tic-Tac-Toe Game
 
 ### Features
 
