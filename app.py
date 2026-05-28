@@ -39,7 +39,7 @@ def humanTurn(userName, marker):
 
 def computerTurn():
     while True:
-        position = random.randrange(1,9,1)
+        position = random.randrange(1,10,1)
         arrPosition = position - 1
         if mainArr[arrPosition] == "X" or mainArr[arrPosition] == "O":
             pass
