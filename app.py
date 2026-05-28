@@ -24,28 +24,17 @@ else:
 def createBoard():
     for i in range(9):
         if i % 3 == 0 and i!=0:
-            print("\n")
-        print(mainArr[i], " ", end="")
+            print("\n" + "------------")
+        print(f" {mainArr[i]} ", end="|")
 
-def user1Turn():
+def humanTurn(userName, marker):
     while True:
-        position = int(input(f"\n\n{user1Name}'s Turn (X): "))
+        position = int(input(f"\n\n{userName}'s Turn ({marker}): "))
         arrPosition = position - 1
         if position < 1 or position > 9 or mainArr[arrPosition] == "X" or mainArr[arrPosition] == "O":
             print("Choose another option")
         else: 
-            mainArr[arrPosition] = "X"
-            break
-
-def user2Turn():
-    while True:
-        position = int(input(f"\n\n{user2Name}'s Turn (O): "))
-        arrPosition = position - 1
-        if position < 1 or position > 9 or mainArr[arrPosition] == "X" or mainArr[arrPosition] == "O":
-            print("Choose another option")
-            pass
-        else: 
-            mainArr[arrPosition] = "O"
+            mainArr[arrPosition] = marker
             break
 
 def computerTurn():
@@ -141,7 +130,7 @@ createBoard()
 def humanVShuman():
     while True:
 
-        user1Turn()
+        humanTurn(user1Name, "X")
         os.system('cls')
         createBoard()
         print("\n")
@@ -167,7 +156,7 @@ def humanVShuman():
                     pass
         else:
             pass
-        user2Turn()
+        humanTurn(user2Name, "O")
         os.system('cls')
         createBoard()
         print("\n")
@@ -197,7 +186,7 @@ def humanVShuman():
 def computerVShuman():
     while True:
 
-        user1Turn()
+        humanTurn(user1Name, "X")
         os.system('cls')
         createBoard()
         print("\n")
